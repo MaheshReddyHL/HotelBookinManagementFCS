@@ -75,6 +75,17 @@ Create table RoomBooking (
 	Price DECIMAL(10, 2) NOT NULL,
     Status NVARCHAR(50) NOT NULL
 );
+CREATE TABLE Booking (
+    BookingID INT IDENTITY(1,1) PRIMARY KEY,
+    Customername VARCHAR(100),
+    Phonenumber VARCHAR(100),
+    EmailId VARCHAR(110),
+    Roomtype VARCHAR(50),
+    CheckInDate DATETIME,
+    CheckOutDate DATETIME,
+    TotalCharge DECIMAL(18, 0)
+);
+
 Insert into RoomBooking ( RoomID, CustomerName, CheckInDate, CheckOutDate, Status,price)
 values
 ( 1, 'Raja',  '2024-10-01', '2024-10-05', 'Confirmed',500.0),   -- Booking for Nithesh (Customer 1)
