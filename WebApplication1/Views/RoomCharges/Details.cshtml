@@ -1,0 +1,42 @@
+﻿@model WebApplication1.Models.RoomCharge
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Charge Details</h2>
+
+<div>
+    <h4>RoomCharge</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalCharge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalCharge)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HotelRoom.RoomNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HotelRoom.RoomNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RoomService.ServiceName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoomService.ServiceName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ChargeID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

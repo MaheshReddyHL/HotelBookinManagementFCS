@@ -1,0 +1,59 @@
+﻿@using WebApplication1.Models
+@model IEnumerable<WebApplication1.Models.Booking>
+@{
+    ViewBag.Title = "bookingview";
+}
+
+
+
+
+
+<h2>Booking View</h2>
+<p>@Html.ActionLink("Back", "CustomerDashboard", "AdminLogin", null, new { @class = "btn btn-primary" })</p>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Booking ID</th>
+                <th>Customer Name</th>
+                <th>Phone Number</th>
+                <th>Email ID</th>
+                <th>Room Type</th>
+                <th>Check-In Date</th>
+                <th>Check-Out Date</th>
+                <th>Total Charge</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var booking in Model)
+            {
+                <tr>
+                    <td>@booking.BookingID</td>
+                    <td>@booking.Customername</td>
+                    <td>@booking.Phonenumber</td>
+                    <td>@booking.EmailId</td>
+                    <td>@booking.Roomtype</td>
+                    <td>@(booking.CheckInDate?.ToString("yyyy-MM-dd") ?? "N/A")</td>
+                    <td>@(booking.CheckOutDate?.ToString("yyyy-MM-dd") ?? "N/A")</td>
+                    <td>@(booking.TotalCharge?.ToString("n") ?? "N/A")</td>
+                    <td>
+                        <!-- Update button -->
+                        <a href="@Url.Action("Edit", "AdminLogin", new { id = booking.BookingID })" class="btn btn-primary">Update</a>
+
+                        <!-- Delete button using GET method -->
+                        <a href="@Url.Action("Delete", "AdminLogin", new { id = booking.BookingID })" class="btn btn-danger" onclick="return confirm('Are you sure you want to Cancel this booking?');">Cancel</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}
+
+else
+{
+    <p>No bookings found.</p>
+}

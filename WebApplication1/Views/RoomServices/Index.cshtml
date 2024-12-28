@@ -1,0 +1,134 @@
+﻿@*@model IEnumerable<WebApplication1.Models.RoomService>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ServiceName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ServiceCharge)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ServiceName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ServiceCharge)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ServiceID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ServiceID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ServiceID })
+            </td>
+        </tr>
+    }
+
+</table>*@
+
+
+@model IEnumerable<WebApplication1.Models.RoomService>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 style="color:darkmagenta">Services Details</h2>
+
+<p>
+    @Html.ActionLink("Add Services", "Create", null, new { @class = "btn btn-create" })
+</p>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.ServiceName)</th>
+            <th>@Html.DisplayNameFor(model => model.ServiceCharge)</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.ServiceName)</td>
+                <td>@Html.DisplayFor(modelItem => item.ServiceCharge)</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ServiceID }, new { @class = "btn btn-edit" }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ServiceID }, new { @class = "btn btn-details" }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ServiceID }, new { @class = "btn btn-delete" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<p>@Html.ActionLink("Back", "AdminDashboard", "AdminLogin", null, new { @class = "btn btn-primary" })</p>
+
+<style>
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+        .table th, .table td {
+            padding: 10px;
+            text-align: left;
+        }
+
+    .table-bordered th, .table-bordered td {
+        border: 1px solid #ddd;
+    }
+
+    .table-striped tbody tr:nth-child(odd) {
+        background-color: #f9f9f9;
+    }
+
+    .btn {
+        padding: 6px 12px;
+        text-decoration: none;
+        border-radius: 4px;
+        color: white;
+    }
+
+    .btn-create {
+        background-color: #28a745; /* Green for 'Create New' */
+    }
+
+    .btn-edit {
+        background-color: #007bff; /* Blue for 'Edit' */
+    }
+
+    .btn-details {
+        background-color: #17a2b8; /* Cyan for 'Details' */
+    }
+
+    .btn-delete {
+        background-color: #dc3545; /* Red for 'Delete' */
+    }
+
+    .btn:hover {
+        opacity: 0.8;
+    }
+
+    h2 {
+        color: #333;
+    }
+    body {
+        background-size: cover;
+        background-image: url('../../models/images/coffee-shop-with-blurred-effect (1).jpg');
+    }
+</style>

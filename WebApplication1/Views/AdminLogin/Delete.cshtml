@@ -1,0 +1,29 @@
+﻿@model WebApplication1.Models.Booking
+
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+
+
+<h2>Delete Booking</h2>
+
+<div class="alert alert-danger">
+    <h4>Are you sure you want to delete this booking?</h4>
+    <p>Booking ID: @Model.BookingID</p>
+    <p>Customer Name: @Model.Customername</p>
+    <p>Phone Number: @Model.Phonenumber</p>
+    <p>Email: @Model.EmailId</p>
+    <p>Room Type: @Model.Roomtype</p>
+    <p>Check-In Date: @(Model.CheckInDate?.ToString("yyyy-MM-dd") ?? "N/A")</p>
+    <p>Check-Out Date: @(Model.CheckOutDate?.ToString("yyyy-MM-dd") ?? "N/A")</p>
+    <p>Total Charge: @(Model.TotalCharge?.ToString("C") ?? "N/A")</p>
+</div>
+
+@using (Html.BeginForm("Delete", "AdminLogin", FormMethod.Post))
+{
+    @Html.HiddenFor(m => m.BookingID) <!-- Pass BookingID to the DeleteConfirmed action -->
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a href="@Url.Action("bookingview", "AdminLogin")" class="btn btn-secondary">Cancel</a>
+}

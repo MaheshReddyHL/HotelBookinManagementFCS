@@ -1,0 +1,104 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+@*<main aria-labelledby="title">
+        <h2 id="title">@ViewBag.Title.</h2>
+        <h3>@ViewBag.Message</h3>
+
+        <address>
+            Whitefield<br />
+            Bangalore, WA 939232-29696<br />
+            <abbr title="Phone">P:</abbr>
+            333.555.7777
+        </address>
+
+        <address>
+            <strong>Support:</strong>   <a href="mailto:Support@example.com">Hotel Ntt@example.com</a><br />
+            <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Hotel Marketing Ntt@example.com</a>
+        </address>
+    </main>*@
+
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contact - Hotel NTT</title>
+        <style>
+            body {
+                font-family: 'Arial', sans-serif;
+                line-height: 1.6;
+                background-color: #f4f4f4;
+                color: #333;
+                margin: 0;
+                padding: 20px;
+    /*background-image: url('https://example.com/your-background-image.jpg')*/ /* Replace with your background image URL */
+                background-size: cover;
+                background-position: center;
+            }
+
+            h2 {
+                text-align: center;
+                color: #4CAF50; /* Green color */
+                margin-bottom: 10px;
+                font-size: 3.0em;
+                text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            }
+
+            h3 {
+                text-align: center;
+                color: #FF5733; /* Orange color */
+                font-size: 3.0em;
+                margin-bottom: 20px;
+            }
+
+            address {
+                text-align: center;
+                font-style: normal; /* Normal style for the address */
+                margin: 20px 0;
+                color: #555; /* Dark gray for better readability */
+            }
+
+            abbr {
+                text-decoration: none;
+                color: #2980b9; /* Blue color for abbreviations */
+            }
+
+            a {
+                color: #e74c3c; /* Red color for links */
+                text-decoration: none;
+            }
+
+            a:hover {
+                text-decoration: underline; /* Underline on hover */
+            }
+
+            /* Responsive design */
+             /*(max-width: 600px) {*/
+                h2 {
+                    font-size: 2.0em; /* Smaller heading on mobile */
+                }
+                h3 {
+                    font-size: 2.0em; /* Smaller sub-heading on mobile */
+                }
+
+        </style>
+    </head>
+    <body>
+        <main aria-labelledby="title">
+            <h2 id="title">@ViewBag.Title</h2>
+            <h3>@ViewBag.Message</h3>
+            <address>
+                Whitefield<br />
+                Bangalore, WA 939232-29696<br />
+                <abbr title="Phone">Landline</abbr> 333.555.7777
+            </address>
+            <address>
+                <strong>Support:</strong> <a href="mailto:Support@example.com">HotelNtt@example.com</a><br />
+                <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">HotelMarketingNtt@example.com</a>
+            </address>
+        </main>
+    </body>
+    </html>
+
+

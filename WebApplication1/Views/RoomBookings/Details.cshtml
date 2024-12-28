@@ -1,0 +1,74 @@
+﻿@model WebApplication1.Models.RoomBooking
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2> Booking Details</h2>
+
+<div>
+    <h4>RoomBooking</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CheckInDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CheckInDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CheckOutDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CheckOutDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerLogin.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerLogin.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HotelRoom.RoomNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HotelRoom.RoomNumber)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BookingID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,179 @@
+﻿
+@{
+    ViewBag.Title = "Gallery";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Hotel Ntt Gallery</title>
+
+    <!-- Add Bootstrap CSS (Optional, can be removed if you don't use Bootstrap) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <style>
+        /* General Body Style */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-top: 50px;
+            color: #4CAF50;
+        }
+
+        /* Gallery Container */
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        /* Single Image Card */
+        .gallery-item {
+            position: relative;
+            width: 300px;
+            margin: 20px;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        /* Image Styling */
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 15px;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        /* Overlay Effect */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            border-radius: 15px;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+
+        .overlay h3 {
+            font-size: 1.5rem;
+            text-align: center;
+            margin: 0;
+            padding: 10px;
+        }
+
+        /* Caption Below Image */
+        .caption {
+            text-align: center;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 0 0 15px 15px;
+            color: #555;
+        }
+
+        @*/* Responsive Gallery */
+        @media screen and (max-width: 768px) {
+            .gallery-item {
+                width: 90%;
+                margin: 15px auto;
+            }
+        }*@
+    </style>
+</head>
+
+<body>
+
+    <h2>Hotel Ntt Gallery</h2>
+
+    <!-- Gallery Container -->
+    <div class="gallery-container">
+        <!-- Gallery Item 1 -->
+        <div class="gallery-item">
+            <img src="~/Models/Images/view-2417156 (1).jpg" /> 
+            <div class="overlay">
+                <h3>Luxury Room</h3>
+            </div>
+            <div class="caption">Luxury Room with a view</div>
+        </div>
+
+        <!-- Gallery Item 2 -->
+        <div class="gallery-item">
+            <img src="~/Models/Images/pool-5055009 (1).jpg" />
+            <div class="overlay">
+                <h3>Outdoor Pool</h3>
+            </div>
+            <div class="caption">Relax at our outdoor pool</div>
+        </div>
+
+        <!-- Gallery Item 3 -->
+        <div class="gallery-item">
+            <img src="~/Models/Images/hotel-2716635 (1).jpg" />
+            <div class="overlay">
+                <h3>Hotel Lobby</h3>
+            </div>
+            <div class="caption">Elegant hotel lobby</div>
+        </div>
+
+        <!-- Gallery Item 4 -->
+        <div class="gallery-item">
+            <img src="~/Models/Images/breakfast-940733 (1).jpg" />
+            <div class="overlay">
+                <h3>Hotel Restaurant</h3>
+            </div>
+            <div class="caption">Fine dining experience</div>
+        </div>
+
+        <!-- Gallery Item 5 -->
+        <div class="gallery-item">
+            <img src="~/Models/Images/woman-8752830 (1).jpg" />
+            <div class="overlay">
+                <h3>Hotel Spa</h3>
+            </div>
+            <div class="caption">Relax in our spa</div>
+        </div>
+
+        <!-- Gallery Item 6 -->
+        <div class="gallery-item">
+            <img src="~/Models/Images/gym-526995 (2).jpg" />
+            <div class="overlay">
+                <h3>Hotel Gym</h3>
+            </div>
+            <div class="caption">Modern fitness center</div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+

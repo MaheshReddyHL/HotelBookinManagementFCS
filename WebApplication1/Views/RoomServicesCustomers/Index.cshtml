@@ -1,0 +1,139 @@
+﻿@*@model IEnumerable<WebApplication1.Models.RoomService>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ServiceName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ServiceCharge)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ServiceName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ServiceCharge)
+            </td>
+
+        </tr>
+    }
+
+</table>*@
+
+
+
+
+@model IEnumerable<WebApplication1.Models.RoomService>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 style="color:darkmagenta">Service Details</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+</p>*@
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.ServiceName)</th>
+            <th>@Html.DisplayNameFor(model => model.ServiceCharge)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.ServiceName)</td>
+                <td>@Html.DisplayFor(modelItem => item.ServiceCharge)</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<p>@Html.ActionLink("Back", "CustomerDashboard", "AdminLogin", null, new { @class = "btn btn-primary" })</p>
+
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f6f8; /* Light background */
+        margin: 20px;
+    }
+
+    h2 {
+        color: #343a40; /* Dark color for heading */
+        margin-bottom: 20px;
+        font-weight: bold;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        color: white;
+        text-decoration: none;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        background-color: #ffffff;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+        .table th, .table td {
+            padding: 15px;
+            text-align: left;
+            border: 1px solid #dee2e6;
+        }
+
+    .table-striped tbody tr:nth-child(odd) {
+        background-color: #f8f9fa;
+    }
+
+    /* Updated Header Color */
+    .table th {
+        background-color: #6c757d; /* Dark gray header */
+        color: white;
+        text-transform: uppercase;
+    }
+
+    .table td {
+        color: #343a40; /* Dark text for table data */
+    }
+
+    p {
+        margin-bottom: 20px;
+    }
+    body {
+        background-size: cover;
+        background-image: url('../../models/images/coffee-shop-with-blurred-effect (1).jpg');
+    }
+    body {
+        background-size: cover;
+        background-image: url('../../models/images/coffee-shop-with-blurred-effect (1).jpg');
+    }
+</style>

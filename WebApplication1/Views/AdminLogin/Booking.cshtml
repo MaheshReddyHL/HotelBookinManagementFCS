@@ -1,0 +1,137 @@
+﻿@model WebApplication1.Models.Booking
+@{
+    ViewBag.Title = "Booking";
+}
+
+<h2>Add Booking</h2>
+
+@using (Html.BeginForm("Booking", "AdminLogin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Customername)
+        @Html.TextBoxFor(model => model.Customername, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Phonenumber)
+        @Html.TextBoxFor(model => model.Phonenumber, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.EmailId)
+        @Html.TextBoxFor(model => model.EmailId, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Roomtype)
+        @Html.DropDownListFor(model => model.Roomtype, (SelectList)ViewBag.RoomTypes, new { @class = "form-control", @id = "roomTypeSelect" })
+    </div>
+
+    <div class="form-group">
+        <label>Price</label>
+        <input type="text" id="roomPrice" class="form-control" readonly />
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.CheckInDate)
+        @Html.TextBoxFor(model => model.CheckInDate, "{0:yyyy-MM-dd}", new { @class = "form-control", @type = "date", @id = Html.IdFor(m => m.CheckInDate) })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.CheckOutDate)
+        @Html.TextBoxFor(model => model.CheckOutDate, "{0:yyyy-MM-dd}", new { @class = "form-control", @type = "date", @id = Html.IdFor(m => m.CheckOutDate) })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.TotalCharge)
+        @Html.TextBoxFor(model => model.TotalCharge, new { @class = "form-control", @id = "totalCharge", @readonly = "readonly" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Booking</button>
+}
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa;
+        margin: 20px;
+    }
+
+    h2 {
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .btn {
+        background-color: #007bff;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+    body {
+        background-size: cover;
+        background-image: url('~/models/images/coffee-shop-with-blurred-effect (1).jpg');
+    }
+</style>
+
+@section Scripts {
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Fetch price when room type changes
+            $('#roomTypeSelect').change(function () {
+                var roomType = $(this).val();
+                $.ajax({
+                    url: '@Url.Action("GetPrice", "AdminLogin")',
+                    type: 'POST',
+                    data: { roomType: roomType },
+                    success: function (response) {
+                        if (response && response.price) {
+                            $('#roomPrice').val(response.price);
+                        } else {
+                            $('#roomPrice').val('');
+                        }
+                    },
+                    error: function () {
+                        alert('Error fetching room price. Please try again.');
+                    }
+                });
+            });
+
+            // Update total charge when dates change
+            $('#@Html.IdFor(m => m.CheckInDate), #@Html.IdFor(m => m.CheckOutDate)').change(function () {
+                var checkIn = new Date($('#@Html.IdFor(m => m.CheckInDate)').val());
+                var checkOut = new Date($('#@Html.IdFor(m => m.CheckOutDate)').val());
+                if (!isNaN(checkIn) && !isNaN(checkOut) && checkOut > checkIn) {
+                    var diffTime = Math.abs(checkOut - checkIn);
+                    var diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+                    var roomPrice = parseFloat($('#roomPrice').val());
+                    var totalCharge = roomPrice * diffDays;
+
+                    if (!isNaN(totalCharge)) {
+                        $('#totalCharge').val(totalCharge);
+                    } else {
+                        $('#totalCharge').val('');
+                    }
+                } else {
+                    $('#totalCharge').val('');
+                }
+            });
+        });
+    </script>
+}

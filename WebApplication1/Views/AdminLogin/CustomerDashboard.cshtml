@@ -1,0 +1,158 @@
+﻿@*@{
+        ViewBag.Title = "CustomerDashboard";
+    }
+
+    <h2>CustomerDashboard</h2>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h3></h3>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        @Html.ActionLink("See Available Rooms", "Index", "HotelRoomCustomers", null, new { @class = "btn btn-primary" })
+                    </li>
+                    <li class="list-group-item">
+                        @Html.ActionLink("See Sevices", "Index", "RoomServicesCustomers", null, new { @class = "btn btn-info" })
+                    </li>
+                    <li class="list-group-item">
+                        @Html.ActionLink("Book Room", "Index", "RoomBookings", null, new { @class = "btn btn-success" })
+                    </li>
+                    <li class="list-group-item">
+                        @Html.ActionLink("Payment", "Index", "Admin", null, new { @class = "btn btn-success" })
+                    </li>
+                    <li class="list-group-item">
+                        @Html.ActionLink("Cancel Booking", "Index", "RoomBookings", null, new { @class = "btn btn-success" })
+                    </li>
+                    <li class="list-group-item">
+                        @Html.ActionLink("Details Update", "Index", "RoomBookings", null, new { @class = "btn btn-success" })
+                    </li>
+                </ul>
+            </div>
+
+
+        </div>
+    </div>*@
+
+
+@{
+    ViewBag.Title = "CustomerDashboard";
+}
+
+<h2>CustomerDashboard</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Welcome Customer</h3>
+
+            <ul class="list-group">
+                <li class="list-group-item">
+                    @Html.ActionLink("See Available Rooms", "Index", "HotelRoomCustomers", null, new { @class = "btn btn-primary btn-block" })
+                </li>
+                <li class="list-group-item text-center">
+                    @Html.ActionLink("See Services", "Index", "RoomServicesCustomers", null, new { @class = "btn btn-info btn-block" })
+                </li>
+                <li class="list-group-item text-center">
+                    @Html.ActionLink("Book Room", "Booking", "AdminLogin", null, new { @class = "btn btn-success btn-block" })
+                </li>
+                @*<li class="list-group-item text-center">
+                        @Html.ActionLink("Payment", "Index", "Admin", null, new { @class = "btn btn-warning btn-block" })
+                    </li>*@
+                <li class="list-group-item text-center">
+                    @Html.ActionLink("View Bookings", "bookingview", "AdminLogin", null, new { @class = "btn btn-secondary btn-block" })
+                    @*</li>
+                        <li class="list-group-item text-center">
+                            @Html.ActionLink("Details Update", "", "", null, new { @class = "btn btn-secondary btn-block" })
+                        </li>*@
+            </ul>
+        </div>
+
+
+        <!--Logout           hajfijashgfuidusaidfuiasgdfu-->
+
+    </div>
+
+</div>
+<a href="~/Home/HomePage" class="btn btn-danger" style="margin-top:10px;width:75px;">Logout</a>
+<style>
+    body {
+        background-image: url('../../models/images/pool-384573 (1).jpg'); /* Replace with your image URL */
+        background-size: cover; /* Cover the entire viewport */
+        background-position: center;
+        font-family: 'Verdana', sans-serif; /* Font style */
+        margin: 0;
+        padding: 0;
+        height: 100vh; /* Full height */
+        color: #333; /* Default text color */
+    }
+
+
+
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 20px;
+    }
+
+    h2 {
+        color: white;
+        margin-bottom: 20px;
+    }
+
+    h3 {
+        color: white;
+        margin-bottom: 20px;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    .list-group-item {
+        margin-bottom: 10px;
+        padding: 0;
+    }
+
+    .btn {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        text-align: left;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .btn-info {
+        background-color: #17a2b8;
+        color: white;
+    }
+
+    .btn-success {
+        background-color: #28a745;
+        color: white;
+    }
+
+    .btn-warning {
+        background-color: #ffc107;
+        color: white;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        color: white;
+    }
+
+    .btn:hover {
+        opacity: 0.85;
+    }
+</style>
+
+
+

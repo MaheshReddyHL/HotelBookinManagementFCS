@@ -1,0 +1,50 @@
+﻿@model WebApplication1.Models.Booking
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+<h2>Edit Booking</h2>
+
+@using (Html.BeginForm("Edit", "AdminLogin", FormMethod.Post))
+{
+    @Html.HiddenFor(m => m.BookingID)
+
+    <div class="form-group">
+        <label for="Customername">Customer Name</label>
+        @Html.TextBoxFor(m => m.Customername, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label for="Phonenumber">Phone Number</label>
+        @Html.TextBoxFor(m => m.Phonenumber, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label for="EmailId">Email ID</label>
+        @Html.TextBoxFor(m => m.EmailId, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label for="Roomtype">Room Type</label>
+        @Html.TextBoxFor(m => m.Roomtype, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label for="CheckInDate">Check-In Date</label>
+        @Html.TextBoxFor(m => m.CheckInDate, new { @class = "form-control", @type = "date" })
+    </div>
+
+    <div class="form-group">
+        <label for="CheckOutDate">Check-Out Date</label>
+        @Html.TextBoxFor(m => m.CheckOutDate, new { @class = "form-control", @type = "date" })
+    </div>
+
+    <div class="form-group">
+        <label for="TotalCharge">Total Charge</label>
+        @Html.TextBoxFor(m => m.TotalCharge, new { @class = "form-control" })
+    </div>
+
+    <button type="submit" class="btn btn-success">Save</button>
+}
